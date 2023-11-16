@@ -1,0 +1,6 @@
+@Fluentp_Api_Example_HostAddress = http://localhost:5209
+
+GET {{Fluentp_Api_Example_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
