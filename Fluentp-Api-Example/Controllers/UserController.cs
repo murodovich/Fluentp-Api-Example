@@ -34,5 +34,11 @@ namespace Fluentp_Api_Example.Controllers
             var result = _userservice.UpdateAsync(id, user);
             return Ok(result.Result);
         }
+        [HttpDelete]
+        public IActionResult DeleteById(int id)
+        {
+            var result = _userservice.DeleteAsync(id);
+            return Ok(result.Result);
+        }
     }
 }

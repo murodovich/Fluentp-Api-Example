@@ -32,9 +32,13 @@ namespace Fluent_Api.Infrastructure.Services.UserServices
             
         }
 
-        public  ValueTask<int> DeleteAsync(int Id)
+        public  async ValueTask<int> DeleteAsync(int Id)
         {
-            throw new NotImplementedException();
+            var result = await _dbcontext.Users.FirstOrDefaultAsync(x => x.UserId == Id);
+            _dbcontext.Users.Remove(result);
+            var res = await _dbcontext.SaveChangesAsync();
+            return res;
+
 
         }
 
