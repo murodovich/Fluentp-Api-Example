@@ -7,16 +7,16 @@ namespace Fluent_Api.Infrastructure.Services.UserServices
 {
     public class UserService : IUserService
     {
-        private readonly IUserService _userService;
+        
         private readonly AppDBContext _dbcontext;
 
-        public UserService(AppDBContext dbcontext,IUserService userService)
+        public UserService(AppDBContext dbcontext)
         {
             _dbcontext = dbcontext;
-            _userService = userService;
+           
         }
 
-        public ValueTask<int> CreateAsync(UserDto model)
+        public async ValueTask<int> CreateAsync(UserDto model)
         {
             User user = new User();
             user.FirstName = model.FirstName;
@@ -26,26 +26,16 @@ namespace Fluent_Api.Infrastructure.Services.UserServices
             user.UserName = model.UserName;
             user.Phone = model.Phone;
             _dbcontext.Users.Add(user);
-            int result = _dbcontext.SaveChanges();
-            if(result == 0)
-            {
-                return new ValueTask<int>(0);
-            }
-            return new ValueTask<int>(result);
+            int result = await _dbcontext.SaveChangesAsync();
+            return result;
 
             
         }
 
-        public ValueTask<int> DeleteAsync(int Id)
+        public  ValueTask<int> DeleteAsync(int Id)
         {
-            var user = _dbcontext.Users.FirstOrDefault(x => x.UserId == Id);
-            if (user != null)
-            {
-                _dbcontext.Users.Remove(user);
-                
-            }
-            return new ValueTask<int>(0);
-            
+            throw new NotImplementedException();
+
         }
 
         public async ValueTask<IList<User>> GetAllAsync()
@@ -54,15 +44,25 @@ namespace Fluent_Api.Infrastructure.Services.UserServices
             return user;
         }
 
-        public ValueTask<User> GetByIdAsync(int Id)
+        public async ValueTask<User> GetByIdAsync(int Id)
         {
-            var user = _dbcontext.Users.FirstOrDefault(x => x.UserId == Id);
-            return new ValueTask<User>(user);            
+            var user = await _dbcontext.Users.FirstOrDefaultAsync(x => x.UserId == Id);
+            return user;
         }
 
-        public ValueTask<int> UpdateAsync(int Id, UserDto model)
+        public async ValueTask<int> UpdateAsync(int Id, UserDto model)
         {
-            throw new NotImplementedException();
+            var user = await _dbcontext.Users.FirstOrDefaultAsync(x => x.UserId == Id);
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.Email = model.Email;
+            user.PasswordHash = model.PasswordHash;
+            user.UserName = model.UserName;
+            user.Phone = model.Phone;
+            _dbcontext.Users.Update(user);
+            var result = await _dbcontext.SaveChangesAsync();
+            return result;
+
         }
     }
 }
