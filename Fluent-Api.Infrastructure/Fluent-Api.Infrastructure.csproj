@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Faluent-Api.Application\Faluent-Api.Application.csproj" />
+    <ProjectReference Include="..\Fluent-Api.Domaiin\Fluent-Api.Domaiin.csproj" />
+  </ItemGroup>
+
 </Project>

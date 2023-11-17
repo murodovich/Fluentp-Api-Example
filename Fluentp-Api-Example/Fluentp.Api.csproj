@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Faluent-Api.Application\Faluent-Api.Application.csproj" />
+    <ProjectReference Include="..\Fluent-Api.Infrastructure\Fluent-Api.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
