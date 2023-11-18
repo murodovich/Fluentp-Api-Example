@@ -20,14 +20,14 @@ namespace Fluent_Api.Infrastructure.Services.CategpryServices
             category.CategoryName = model.CategoryName;
 
             await _dbContext.Categories.AddAsync(category);
-            var res =await _dbContext.SaveChangesAsync();
+            var res = await _dbContext.SaveChangesAsync();
             return res;
         }
 
         public async ValueTask<int> DeleteAsync(int Id)
         {
-             var result = await _dbContext.Categories.FirstOrDefaultAsync(x => x.CategoryId == Id);
-             _dbContext.Categories.Remove(result);
+            var result = await _dbContext.Categories.FirstOrDefaultAsync(x => x.CategoryId == Id);
+            _dbContext.Categories.Remove(result);
             var res = await _dbContext.SaveChangesAsync();
             return res;
         }
