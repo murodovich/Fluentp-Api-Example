@@ -1,4 +1,5 @@
 using Faluent_Api.Application;
+using Fluent_Api.Infrastructure.Services.CategpryServices;
 using Fluent_Api.Infrastructure.Services.UserServices;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +18,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 
