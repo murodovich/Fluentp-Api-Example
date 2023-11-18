@@ -1,6 +1,5 @@
 ﻿using Fluent_Api.Infrastructure.Dtos;
 using Fluent_Api.Infrastructure.Services.CategpryServices;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fluentp_Api_Example.Controllers
@@ -51,6 +50,6 @@ namespace Fluentp_Api_Example.Controllers
             return Ok(result.Result);
         }
 
-       
+
     }
 }
