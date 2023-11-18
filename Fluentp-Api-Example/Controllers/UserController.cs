@@ -11,9 +11,9 @@ namespace Fluentp_Api_Example.Controllers
         private readonly IUserService _userservice;
 
         [HttpGet]
-        public   IActionResult GetAllAsync()
+        public IActionResult GetAllAsync()
         {
-            var result =   _userservice.GetAllAsync();
+            var result = _userservice.GetAllAsync();
             return Ok(result.Result);
         }
         [HttpPost]
