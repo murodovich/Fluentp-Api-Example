@@ -2,6 +2,7 @@
 {
     public class BookCategory
     {
+        public int BookCategoryId { get; set; }
         public int BookId { get; set; }
         public int CategoryId { get; set; }
 

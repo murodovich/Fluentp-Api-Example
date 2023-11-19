@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Fluent_Api.Infrastructure.Dtos
+﻿namespace Fluent_Api.Infrastructure.Dtos
 {
-    internal class BorrowedBookDto
+    public class BorrowedBookDto
     {
+        public int BookId { get; set; }
+        public int UserId { get; set; }
+        public DateTime BorrowedDate { get; set; }
+        public DateTime ReturnDate { get; set; }
+        public string Status { get; set; }
     }
 }

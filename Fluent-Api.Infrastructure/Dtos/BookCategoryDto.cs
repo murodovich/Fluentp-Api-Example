@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Fluent_Api.Infrastructure.Dtos
+﻿namespace Fluent_Api.Infrastructure.Dtos
 {
-    internal class BookCategoryDto
+    public class BookCategoryDto
     {
+        public int BookId { get; set; }
+        public int CategoryId { get; set; }
     }
 }
