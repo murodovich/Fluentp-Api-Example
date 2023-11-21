@@ -42,7 +42,7 @@ namespace Fluent_Api.Infrastructure.Services.UserServices
 
         }
 
-        public async ValueTask<IList<User>> GetAllAsync()
+        public async ValueTask<List<User>> GetAllAsync()
         {
             var user = await _dbcontext.Users.ToListAsync();
             return user;

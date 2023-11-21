@@ -32,7 +32,7 @@ namespace Fluent_Api.Infrastructure.Services.CategpryServices
             return res;
         }
 
-        public async ValueTask<IList<Category>> GetAllAsync()
+        public async ValueTask<List<Category>> GetAllAsync()
         {
             var result = await _dbContext.Categories.ToListAsync();
             return result;

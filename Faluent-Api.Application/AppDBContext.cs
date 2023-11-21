@@ -22,14 +22,6 @@ namespace Faluent_Api.Application
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            //modelBuilder.ApplyConfiguration(new BookConfiguration());
-            //modelBuilder.ApplyConfiguration(new AuthorConfiguration());
-            //modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-            //modelBuilder.ApplyConfiguration(new BookCategoryConfiguration());
-            //modelBuilder.ApplyConfiguration(new UserTypeConfiguration());
-            //modelBuilder.ApplyConfiguration(new BorrowedBookConfiguration());
-
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }

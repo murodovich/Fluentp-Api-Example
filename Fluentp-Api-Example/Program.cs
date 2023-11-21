@@ -1,7 +1,12 @@
 using Faluent_Api.Application;
+using Fluent_Api.Infrastructure.Services.AuthorServices;
+using Fluent_Api.Infrastructure.Services.BookCategoryServices;
+using Fluent_Api.Infrastructure.Services.BookServices;
+using Fluent_Api.Infrastructure.Services.BorrowedBookServices;
 using Fluent_Api.Infrastructure.Services.CategpryServices;
 using Fluent_Api.Infrastructure.Services.UserServices;
 using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +24,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IAuthorService, AuthorService>();
+builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IBookCategoryService, BookCategoryService>();
+builder.Services.AddScoped<IBorrowedBookService, BorrowedBookService>();
+
 
 var app = builder.Build();
 
